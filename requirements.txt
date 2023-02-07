@@ -1,0 +1,6 @@
+Flask==2.2.2
+psycopg2-binary==2.9.5
+requests==2.28.2
+SQLAlchemy-Utils==0.39.0
+SQLAlchemy==1.4.40
+pydantic==1.10.4
