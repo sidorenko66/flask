@@ -33,7 +33,7 @@ class Ad(Base):
     title = Column(String, nullable=False)
     description = Column(Text)
     creation_time = Column(DateTime, server_default=func.now())
-    user_id = Column(Integer, ForeignKey("user", ondelete="CASCADE"))
+    user_id = Column(Integer, ForeignKey("user.id", ondelete="CASCADE"))
 
 
 Base.metadata.create_all(bind=engine)
