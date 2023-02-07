@@ -110,11 +110,11 @@ class AdView(MethodView):
             session.commit()
 
 
-app.add_url_rule('users/<int: user_id', view_func=UserView.as_view('users_with_id'), methods=['GET', 'PATCH', 'DELETE'])
-app.add_url_rule('users', view_func=UserView.as_view('create_user'), methods=['POST'])
+app.add_url_rule('/users/<int:user_id>', view_func=UserView.as_view('users_with_id'), methods=['GET', 'PATCH', 'DELETE'])
+app.add_url_rule('/users', view_func=UserView.as_view('create_user'), methods=['POST'])
 
-app.add_url_rule('ads/<int: ad_id', view_func=AdView.as_view('ads_with_id'), methods=['GET', 'PATCH', 'DELETE'])
-app.add_url_rule('ads', view_func=AdView.as_view('create_ad'), methods=['POST'])
+app.add_url_rule('/ads/<int:ad_id>', view_func=AdView.as_view('ads_with_id'), methods=['GET', 'PATCH', 'DELETE'])
+app.add_url_rule('/ads', view_func=AdView.as_view('create_ad'), methods=['POST'])
 
 
 app.run(port=5001)
