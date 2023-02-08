@@ -33,7 +33,7 @@ class UserView(MethodView):
 
     def get(self, user_id):
         with Session() as session:
-            user = get_ad(user_id, session)
+            user = get_user(user_id, session)
             return jsonify(
                 {
                     'id': user.id,
@@ -80,7 +80,7 @@ class AdView(MethodView):
 
     def get(self, ad_id):
         with Session() as session:
-            ad = get_user(ad_id, session)
+            ad = get_ad(ad_id, session)
             return jsonify(
                 {
                     'id': ad.id,
