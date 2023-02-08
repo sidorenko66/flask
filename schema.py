@@ -10,6 +10,7 @@ class CreateUser(BaseModel):
 
 class CreateAd(BaseModel):
     title: str
+    description: str
     user_id: int
 
 
