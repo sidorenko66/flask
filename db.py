@@ -30,7 +30,7 @@ class Ad(Base):
     __tablename__ = "ad"
 
     id = Column(Integer, primary_key=True)
-    title = Column(String, nullable=False)
+    title = Column(String(60), nullable=False)
     description = Column(Text)
     creation_time = Column(DateTime, server_default=func.now())
     user_id = Column(Integer, ForeignKey("user.id", ondelete="CASCADE"))
