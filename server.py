@@ -61,12 +61,19 @@ class UserView(MethodView):
                 setattr(user, field, value)
             session.add(user)
             session.commit()
+            return jsonify(
+                {
+                    'id': user.id,
+                    'email': user.email,
+                }
+            )
 
     def delete(self, user_id):
         with Session() as session:
             user = get_user(user_id, session)
             session.delete(user)
             session.commit()
+            return {"deleted": True}
 
 
 class AdView(MethodView):
@@ -102,12 +109,20 @@ class AdView(MethodView):
                 setattr(ad, field, value)
             session.add(ad)
             session.commit()
+            return jsonify(
+                {
+                    'id': ad.id,
+                    'title': ad.title,
+                    'description': ad.description,
+                }
+            )
 
     def delete(self, ad_id):
         with Session() as session:
             ad = get_ad(ad_id, session)
             session.delete(ad)
             session.commit()
+            return {"deleted": True}
 
 
 app.add_url_rule('/users/<int:user_id>', view_func=UserView.as_view('users_with_id'), methods=['GET', 'PATCH', 'DELETE'])
