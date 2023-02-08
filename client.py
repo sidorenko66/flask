@@ -18,7 +18,7 @@ response = requests.get('http://127.0.0.1:5001/ads/1')
 print(response.status_code)
 print(response.text)
 
-response = requests.patch('http://127.0.0.1:5001/ads',
+response = requests.patch('http://127.0.0.1:5001/ads/1',
                          json={'title': 'new ad 1 patch', 'description': 'some description patch', 'user_id': 1})
 print(response.status_code)
 print(response.text)
